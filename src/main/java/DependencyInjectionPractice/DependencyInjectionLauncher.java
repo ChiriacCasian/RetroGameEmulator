@@ -1,22 +1,20 @@
 package DepInjection;
 
-import DependencyInjectionPractice.DataService;
-import org.springframework.beans.factory.annotation.Autowired;
+import DependencyInjectionPractice.BusinessCalculationService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-import javax.xml.crypto.Data;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 @Configuration
-@ComponentScan /// automatically does compScan in the same package this class is in
+@ComponentScan("DependencyInjectionPractice") /// automatically does compScan in the same package this class is in
 public class DependencyInjectionLauncher {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(DependencyInjectionLauncher.class) ;
-        System.out.println(context.getBean(YourBusinessClass.class)) ;
+        Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println) ;
+        System.out.println(context.getBean(BusinessCalculationService.class).max()) ;
     }
 }
 @Component
@@ -46,14 +44,4 @@ class Dependency1{
 }
 @Component
 class Dependency2{
-}
-@Component
-class BusinessCalculationService{
-    DataService dataService ;
-    public BusinessCalculationService(DataService dataService){
-        this.dataService = dataService ;
-    }
-    public int max(){
-        return Arrays.stream(dataService.retrieveData()).max().orElse(0) ;
-    }
 }
