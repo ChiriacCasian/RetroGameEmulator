@@ -36,7 +36,7 @@ public class CommitSchedulerLauncher {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String remoteLink = reader.readLine() ;
-        if(remoteLink.startsWith("https") && false){
+        if(remoteLink.startsWith("https") && false){// another comm
             /// either switch to ssh, or use PAT token to authenticate http remote communication
             /// if PAT token is provided in the properties file, use it to authenticate
             if(pat_token == null){
