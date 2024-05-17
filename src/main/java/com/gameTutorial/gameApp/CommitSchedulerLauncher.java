@@ -27,7 +27,7 @@ public class CommitSchedulerLauncher {
         setHeadToSha1(freshestCommit);
     }
 
-    private static void checkProtocol() throws IOException { /// nothing again
+    private static void checkProtocol() throws IOException { /// nothing again fdsagdsasdag
         ProcessBuilder processBuilder = new ProcessBuilder();
         List<String> command = Arrays.asList("git", "config", "--get", "remote."+remoteBranchName +".url") ;
 
