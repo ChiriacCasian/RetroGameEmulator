@@ -13,7 +13,7 @@ public class CommitSchedulerLauncher {
     private static String ssh_key ;
     public static void main(String[] args) throws IOException {
         getProperties() ;
-        checkProtocol() ;
+        //checkProtocol() ;
         String freshestCommit ;
         String oldestCommit ;
         oldestCommit = getOldestUnpushedCommit();
